@@ -82,13 +82,10 @@ mkdir -p /opt/aws
 sudo mv ebs-snapshot.sh /opt/aws/
 ```
 
-You should then setup a cron job in order to schedule a nightly backup. Example crontab jobs:
+You should then setup a cron job in order to schedule a nightly backup. Example crontab jobs (e.g. sudo crontab -e):
 ```
-55 22 * * * root  AWS_CONFIG_FILE="/root/.aws/config" /opt/aws/ebs-snapshot.sh
+0 2 * * * /opt/aws/ebs-snapshot.sh
 
-# Or written another way:
-AWS_CONFIG_FILE="/root/.aws/config" 
-55 22 * * * root  /opt/aws/ebs-snapshot.sh
 ```
 
 To manually test the script:
